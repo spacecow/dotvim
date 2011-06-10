@@ -11,7 +11,7 @@ set ts=2 sw=2 sts=2 expandtab
 if has("autocmd")
   " Enable file type detection
   filetype on
- 
+
   " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -21,7 +21,7 @@ endif
 
 "Strip trailing whitespace
 autocmd BufWritePre *.erb,*.js :call <SID>StripTrailingWhitespaces()
-nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+"nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -52,7 +52,7 @@ vmap <C-j> xp`[V`]
 
 "Automatically align cucumber outlines
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
- 
+
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
@@ -63,3 +63,6 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+"Gundo
+nnoremap <F5> :GundoToggle<CR>
