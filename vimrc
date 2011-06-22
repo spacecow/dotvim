@@ -40,7 +40,6 @@ map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>v :tabedit $MYVIMRC<CR>
 set number
 set linebreak
-set columns=200
 
 "Bubbling
 nmap <C-k> ddkP
