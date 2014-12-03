@@ -65,3 +65,6 @@ endfunction
 
 "Gundo
 nnoremap <F5> :GundoToggle<CR>
+
+"Markings at col 81 & 121
+let &colorcolumn="81,".join(range(121,999),",")
